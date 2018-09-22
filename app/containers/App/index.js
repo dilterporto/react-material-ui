@@ -23,8 +23,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from 'components/ListItems';
-import SimpleLineChart from 'components/SimpleLineChart';
-import SimpleTable from 'components/SimpleTable';
+
+import HomePage from 'containers/HomePage/Loadable';
+import { Switch, Route } from 'react-router-dom';
+
 
 const drawerWidth = 240;
 
@@ -104,7 +106,7 @@ const styles = theme => ({
 
 class Dashboard extends React.Component {
   state = {
-    open: true,
+    open: false,
   };
 
   handleDrawerOpen = () => {
@@ -139,7 +141,7 @@ class Dashboard extends React.Component {
                 <MenuIcon />
               </IconButton>
               <Typography variant="title" color="inherit" noWrap className={classes.title}>
-                Dashboard
+                Portal da Tesouraria 3.0
               </Typography>
               <IconButton color="inherit">
                 <Badge badgeContent={4} color="secondary">
@@ -167,18 +169,9 @@ class Dashboard extends React.Component {
           </Drawer>
           <main className={classes.content}>
             <div className={classes.appBarSpacer} />
-            <Typography variant="display1" gutterBottom>
-              Orders
-            </Typography>
-            <Typography component="div" className={classes.chartContainer}>
-              <SimpleLineChart />
-            </Typography>
-            <Typography variant="display1" gutterBottom>
-              Products
-            </Typography>
-            <div className={classes.tableContainer}>
-              <SimpleTable />
-            </div>
+            <Switch>
+              <Route exact path="/" component={HomePage} />                            
+            </Switch>
           </main>
         </div>
       </React.Fragment>
