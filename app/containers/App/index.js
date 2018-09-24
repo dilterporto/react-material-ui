@@ -17,16 +17,18 @@ import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
+import Chip from '@material-ui/core/Chip';
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from 'components/ListItems';
+import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import FeaturePage from 'containers/FeaturePage/Loadable';
 
 import HomePage from 'containers/HomePage/Loadable';
 import { Switch, Route } from 'react-router-dom';
-
 
 const drawerWidth = 240;
 
@@ -126,9 +128,15 @@ class Dashboard extends React.Component {
         <div className={classes.root}>
           <AppBar
             position="absolute"
-            className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
+            className={classNames(
+              classes.appBar,
+              this.state.open && classes.appBarShift,
+            )}
           >
-            <Toolbar disableGutters={!this.state.open} className={classes.toolbar}>
+            <Toolbar
+              disableGutters={!this.state.open}
+              className={classes.toolbar}
+            >
               <IconButton
                 color="inherit"
                 aria-label="Open drawer"
@@ -140,8 +148,13 @@ class Dashboard extends React.Component {
               >
                 <MenuIcon />
               </IconButton>
-              <Typography variant="title" color="inherit" noWrap className={classes.title}>
-                Portal da Tesouraria 3.0
+              <Typography
+                variant="title"
+                color="inherit"
+                noWrap
+                className={classes.title}
+              >
+                Portal da Tesouraria <Chip label="beta" color="secondary" />
               </Typography>
               <IconButton color="inherit">
                 <Badge badgeContent={4} color="secondary">
@@ -153,7 +166,10 @@ class Dashboard extends React.Component {
           <Drawer
             variant="permanent"
             classes={{
-              paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
+              paper: classNames(
+                classes.drawerPaper,
+                !this.state.open && classes.drawerPaperClose,
+              ),
             }}
             open={this.state.open}
           >
@@ -164,13 +180,15 @@ class Dashboard extends React.Component {
             </div>
             <Divider />
             <List>{mainListItems}</List>
-            <Divider />
-            <List>{secondaryListItems}</List>
+            {/* <Divider />
+            <List>{secondaryListItems}</List> */}
           </Drawer>
           <main className={classes.content}>
             <div className={classes.appBarSpacer} />
             <Switch>
-              <Route exact path="/" component={HomePage} />                            
+              <Route exact path="/" component={HomePage} />
+              <Route path="/features" component={FeaturePage} />
+              <Route path="" component={NotFoundPage} />
             </Switch>
           </main>
         </div>

@@ -16,51 +16,51 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Operações do dia" />
+      <ListItemText disableTypography primary="Operações" />
     </ListItem>
-    <ListItem button>
+    {/* <ListItem button disabled>
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
       <ListItemText primary="Propostas" />
     </ListItem>
-    <ListItem button>
+    <ListItem button disabled>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Simulação" />
     </ListItem>
-    <ListItem button>
+    <ListItem button disabled>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
       <ListItemText primary="Rejeitar Proposta" />
     </ListItem>
-    <ListItem button>
+    <ListItem button disabled>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
       <ListItemText primary="Cadastro Convênio" />
-    </ListItem>
+    </ListItem> */}
   </div>
 );
 
 export const secondaryListItems = (
   <div>
     <ListSubheader inset>Arquivos</ListSubheader>
-    <ListItem button>
+    <ListItem button disabled>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
       <ListItemText primary="Todos" />
     </ListItem>
-    <ListItem button>
+    <ListItem button disabled>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
       <ListItemText primary="FIDC" />
     </ListItem>
-    <ListItem button>
+    <ListItem button disabled>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
