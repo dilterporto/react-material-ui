@@ -1,13 +1,6 @@
-/**
- *
- * App
- *
- * This component is the skeleton around the actual pages, and should only
- * contain code that should be seen on all pages. (e.g. navigation bar)
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Switch, Route } from 'react-router-dom';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -23,12 +16,9 @@ import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from 'components/ListItems';
+import { mainListItems } from 'components/ListItems';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
-
-import HomePage from 'containers/HomePage/Loadable';
-import { Switch, Route } from 'react-router-dom';
+import Jobs from 'containers/Jobs/Loadable';
 
 const drawerWidth = 240;
 
@@ -180,14 +170,11 @@ class Dashboard extends React.Component {
             </div>
             <Divider />
             <List>{mainListItems}</List>
-            {/* <Divider />
-            <List>{secondaryListItems}</List> */}
           </Drawer>
           <main className={classes.content}>
             <div className={classes.appBarSpacer} />
             <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route path="/features" component={FeaturePage} />
+              <Route exact path="/" component={Jobs} />
               <Route path="" component={NotFoundPage} />
             </Switch>
           </main>
