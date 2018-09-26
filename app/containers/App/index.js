@@ -144,7 +144,7 @@ class Dashboard extends React.Component {
                 noWrap
                 className={classes.title}
               >
-                Portal da Tesouraria <Chip label="beta" color="secondary" />
+                Portal da Tesouraria <Chip label="alpha" color="default" />
               </Typography>
               <IconButton color="inherit">
                 <Badge badgeContent={4} color="secondary">

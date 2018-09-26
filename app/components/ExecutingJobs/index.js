@@ -34,8 +34,7 @@ const styles = theme => ({
 });
 
 function ExecutingJobs(props) {
-    const { jobs, classes } = props;
-    console.log(jobs);
+    const { jobs, classes } = props;    
     const executingJobs = filter(jobs, (j) => j.executing);
     return (
         <div>
